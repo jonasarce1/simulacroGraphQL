@@ -32,7 +32,7 @@ export const getCharacters = async (ids: Array<string>): Promise<Character[]> =>
                 }))
             }
         }
-    });
+    }).filter((character: Character | null) => character !== null); // Filtra los personajes nulos (si no pongo esto aparecen nulls)
 
     return characters;
 };
