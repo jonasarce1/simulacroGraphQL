@@ -34,7 +34,10 @@ export const getCharacters = async (ids: Array<string>): Promise<Character[]> =>
         }
     })
 
-    console.log(characters.length);
+    //cojo solo los personajes que no son undefined ya que debido al bucle infinito que se crea al llamar a la funcion getEpisodes, algunos personajes son undefined
+    const characteresFiltrados = characters.filter((character: Character) => {
+        return character !== undefined;
+    })
 
-    return characters;
+    return characteresFiltrados;
 };
